@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping List App</title>
+    <!--Link  to you stylesheet file-->
+      <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h3 class="heading">Shopping List App</h3>
+<form >
+    <fieldset>
+        <legend><h2>User Login</h2></legend>
+        <label><b>Username :</b></label>
+        <input type="text" placeholder="Enter Username" name="email" required>
+        <label><b>Password :</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+          <input type="checkbox" checked="checked">
+    <i>Remember me?</i>
+    <div class="clearfix">
+       <button type="reset" class="btncancel">Cancel</button>
+       <button type="submit" class="btnsignup">Login</button>
+    </div>
+        <p style="text-align: center"><a href="#">Fogort Password? click here to reset</a></p>
+    </fieldset>
+
+</form>
+</div>
+</body>
+</html>
