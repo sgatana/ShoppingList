@@ -1,6 +1,6 @@
 /*Sytle the body with default background-color*/
 body{
-    background-color: #fafafa;
+    background-color: #ffffff;
 }
 /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -8,7 +8,7 @@ input[type=text], input[type=password] {
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px solid #91ccbe;
     border-radius: 5px;
     box-sizing: border-box;
 }
@@ -44,7 +44,7 @@ button {
 }
 .btnsignup {
     float: right;
-    width: 40% ;
+    width: 40%;
 
 }
 

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ShoppingList</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='dashboardStyles.css') }}">
+
+</head>
+<body>
+<form action="create_shoppinglist.html">
+    <div class="items-container">
+        <div class="form-header">
+            <h2 class="title">Shopping List App</h2>
+        </div>
+        <div class="card">
+            <button type="submit" class="new-btn"><a href="#"  >Create A Shopping List</a></button>
+            <form action="shoppinglist.html">
+                <div class="form-header">
+                    <h4 class="title">Nivas Supermarket</h4>
+                </div>
+                <div class="form-body">
+                    <ol>
+                        <li>
+                        <ul><strong>Fruits.</strong>
+                            <li>Oranges</li>
+                            <li>Bananas</li>
+                            <li>Water melons</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <ul><strong>Electronics.</strong>
+                            <li>Home theatres</li>
+                            <li>Refrigirators</li>
+                            <li>TV cord</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <ul><strong>Cereals</strong>
+                            <li>Beans</li>
+                            <li>Peas</li>
+                            <li>Maize</li>
+                        </ul>
+                        </li>
+                    </ol>
+                    <!-- Buttons -->
+                    <button type="submit" class="view-btn"><a href="#">View</a></button>
+                    <button type="submit" class="deletebtn"><a href="#">Delete</a></button>
+                    <button type="submit" class="sharebtn"><a href="#">Share</a></button>
+                </div>
+            </form>
+        </div>
+
+        <div class="card">
+            <form action="view_shoppinglist.html">
+                <div class="form-header">
+                    <h4 class="title">The Game Supermarket</h4>
+                </div>
+                <div class="form-body">
+                    <ol>
+                        <li>
+                        <ul><strong>Furniture.</strong>
+                            <li>Sofa Set</li>
+                            <li>Bed</li>
+                            <li>Baby Cot</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <ul><strong>Drinks</strong>
+                            <li>Delmonter</li>
+                            <li>Minute maid</li>
+                            <li>Peak n peal</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <ul><strong>Clothes</strong>
+                            <li>Men</li>
+                            <li>Women</li>
+                            <li>Kids</li>
+                        </ul>
+                        </li>
+
+                    </ol>
+                    <!-- Buttons -->
+                    <button type="submit" class="view-btn"><a href="#">View</a></button>
+                    <button type="submit" class="deletebtn"><a href="#">Delete</a></button>
+                    <button type="submit" class="sharebtn"><a href="#">share</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</form>
+</body>
+</html>
