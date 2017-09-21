@@ -1,0 +1,35 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}
+SignUp page
+{% endblock %}
+{% block styles %}
+{{ super() }}
+      <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}">
+{% endblock %}
+<body>
+{% block content %}
+
+
+<div class="container">
+    <h3 class="heading">Shopping List App</h3>
+<form  method="post" action="/">
+    <fieldset>
+        <legend><h4>User Signup Form</h4></legend>
+     {{ form.hidden_tag()}}
+        {{ wtf.form_field(form.username) }}
+        {{ wtf.form_field(form.email) }}
+        {{ wtf.form_field(form.password) }}
+        {{ wtf.form_field(form.confirm) }}
+        {{ wtf.form_field(form.remember) }}
+    <div class="clearfix">
+      <button type="button" class="btncancel">Cancel</button>
+      <button type="submit" class="btnsignup">Sign Up</button>
+    </div>
+
+    </fieldset>
+
+</form>
+</div>
+{% endblock %}
+</body>

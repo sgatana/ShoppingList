@@ -23,7 +23,7 @@ class TestUser(unittest.TestCase):
         self.user.delete_shopping_list(self.shopping_list.name)
         self.assertEqual(0, len(self.user.shopping_lists))
 
-    def test_user_delete_unexisting_shopping_list(self):
+    def test_user_delete_nonexisting_shopping_list(self):
         self.assertEqual(0, len(self.user.shopping_lists))
         with self.assertRaises(ShoppingListDoesNotExist):
             self.user.delete_shopping_list("List does not exist")
@@ -36,7 +36,7 @@ class TestUser(unittest.TestCase):
 
     def test_get_shopping_list_returns_if_item_found(self):
 
-        """tests if the get.. method in user returns the shoppingList Specified by
+        """tests if the get method in user returns the shoppingList Specified by
         :key and raises (ShoppingListDoesNotExist)exception if not found
         """
 
