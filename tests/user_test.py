@@ -30,9 +30,9 @@ class TestUser(unittest.TestCase):
 
     def test_exception_raised_on_try_to_create_similar_shopping_lists(self):
         self.user.create_shopping_lst(self.shopping_list)
-        self.user.create_shopping_lst(ShoppingList("added to list"))
+        self.user.create_shopping_lst(ShoppingList("naivas", "buy stuff"))
         with self.assertRaises(ShoppingListAlreadyExist):
-            self.user.create_shopping_lst(ShoppingList("Already existing"))
+            self.user.create_shopping_lst(ShoppingList("naivas", "Already existing"))
 
     def test_get_shopping_list_returns_if_item_found(self):
 
@@ -42,7 +42,6 @@ class TestUser(unittest.TestCase):
 
         self.user.create_shopping_lst(self.shopping_list)
         self.assertEqual(1, len(self.user.shopping_lists))
-        self.assertIsInstance(self.user.get_shopping_lst("Naivas"), ShoppingList)
         self.assertEqual("Naivas", self.user.get_shopping_lst("Naivas").name)
         self.assertEqual(1, len(self.user.shopping_lists))
 
