@@ -35,19 +35,17 @@ class TestUser(unittest.TestCase):
             self.user.create_shopping_lst(ShoppingList("naivas", "Already existing"))
 
     def test_get_shopping_list_returns_if_item_found(self):
-
-        """tests if the get method in user returns the shoppingList Specified by
-        :key and raises (ShoppingListDoesNotExist)exception if not found
-        """
-
         self.user.create_shopping_lst(self.shopping_list)
         self.assertEqual(1, len(self.user.shopping_lists))
         self.assertEqual("Naivas", self.user.get_shopping_lst("Naivas").name)
         self.assertEqual(1, len(self.user.shopping_lists))
 
     def test_get_shoppinglist_raises_exception_if_shoppinglist_not_found(self):
+        """tests if the get method in user returns the shoppingList Specified by
+               key and raises (ShoppingListDoesNotExist)exception if not found
+               """
         with self.assertRaises(ShoppingListDoesNotExist):
-            self.user.get_shopping_lst("Shopping List does not exist")
+            self.user.get_shopping_lst(ShoppingList( "Naivas","Shopping List not found"))
 
 if __name__ == '__main__':
     unittest.main()
