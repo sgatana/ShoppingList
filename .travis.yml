@@ -6,5 +6,6 @@ install:
   - pip install coveralls
 script:
   - nosetests -v
+  - nosetests --with-coverage
 after_success:
   - coveralls
