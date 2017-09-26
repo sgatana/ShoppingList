@@ -3,7 +3,7 @@ from Exceptions import ItemDoesNotExist, ItemAlreadyExist
 
 class ShoppingList:
     def __init__(self, name, description):
-        """ This Class Adds and Manages Items In a User Shopping List"""
+        """ This Class Manages Items In a User Shopping List"""
         self.name = name
         self.description = description
         self.categories = {}
@@ -12,7 +12,7 @@ class ShoppingList:
         """If Item is already added Raise an exception"""
         try:
             self.get_item(item)
-            raise ItemAlreadyExist("Item already updated")
+            raise ItemAlreadyExist("Item already Added")
         except KeyError:
             cat_dict = self.categories.get(item.category, {})
             # First Update The inner Dictionary

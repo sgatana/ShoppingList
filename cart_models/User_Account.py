@@ -1,7 +1,7 @@
 from Exceptions import UserAlreadyExist, UserDoesNotExist
 
 
-class Accounts(object):
+class Accounts:
     """ Creates an Account where users can be stored"""
 
     def __init__(self):
@@ -21,9 +21,7 @@ class Accounts(object):
         except KeyError:
             raise UserDoesNotExist
 
-    def check_user(self, email):
+    def get_user(self, email):
         if email in self.users:
             return self.users[email]
 
-    def all_users(self):
-        return self.users

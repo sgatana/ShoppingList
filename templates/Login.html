@@ -1,22 +1,26 @@
-{% extends "bootstrap/base.html" %}
+<!DOCTYPE html>
+{% extends "base.html" %}
+
 {% import "bootstrap/wtf.html" as wtf %}
-{% block title %}
-Login
-{% endblock %}
-{% block styles %}
+
+{% block head %}
 {{ super() }}
-      <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}">
 {% endblock %}
+
+<!-- Override navbar to prevent them from appearling in this page -->
+{% block navbar %}
+{% endblock %}
+
 <body>
-{% block content %}
+{% block page_content %}
 
 <div class="container">
     <h3 class="heading">Shopping List App</h3>
-<form method="post" action="/login" >
+<form class="form" method="post" >
     <fieldset>
         <legend><h4>User Login</h4></legend>
         {{ form.hidden_tag()}}
-        {{ wtf.form_field(form.username) }}
+        {{ wtf.form_field(form.email) }}
         {{ wtf.form_field(form.password) }}
         {{ wtf.form_field(form.remember) }}
 
@@ -27,6 +31,8 @@ Login
         <br/>
         <p style="text-align: center"><a href="#">Fogort Password? click here to reset</a></p>
     </fieldset>
+
+    <p style="text-align: center" >No Account?<a href="/register">Click here Sign Up</a></p>
 
 </form>
 </div>

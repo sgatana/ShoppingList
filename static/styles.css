@@ -5,7 +5,7 @@ body{
 /* Full-width input fields */
 input[type=text], input[type=password] {
     width: 100%;
-    padding: 12px 20px;
+    padding: 10px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #91ccbe;
@@ -31,6 +31,18 @@ button {
 .btncancel {
     padding: 14px 20px;
     background-color: #f4aa41;
+}
+.form{
+	width: 50%;
+	background-color: #f2f2f2;
+	border-radius: 2px;
+    box-shadow: 0 8px 16px 0 #f9f0f0;
+	margin:10px auto auto;
+	transition: all 0.25s;
+}
+/* On mouse-over, add a deeper shadow */
+.form:hover {
+    box-shadow: #B7C4E3;
 }
 .heading
 {

@@ -1,30 +1,36 @@
 /* body general looks*/
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #fafafa;
+
+    background-color: #ffffff;
 }
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
     width: 100%;
-    padding: 12px 20px;
+    padding: 10px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px solid #91ccbe;
+    border-radius: 5px;
     box-sizing: border-box;
 }
-
 /* Set a style for all buttons */
 button {
-    background-color: #2613af;
+    background-color: #2e67af;
     color: white;
-    border: none;
-    width: 100%;
-    border-color: transparent;
-    border-radius: 6px;
     padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
     cursor: pointer;
-    font-size: 16px;
+    width: 100%;
+}
+
+.btncancel, .btnsignup{
+    border-radius: 5px;
+}
+.btncancel {
+    padding: 14px 20px;
+    background-color: #f4aa41;
 }
 button:hover{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -34,18 +40,7 @@ button a {
 	color: #fff
 }
 /* Make form appear with card effect*/
-.card{
-	width: 50%;
-	background-color: #f2f2f2;
-	border-radius: 2px;
-    box-shadow: 0 8px 16px 0 #f9f0f0;
-	margin:10px auto auto;
-	transition: all 0.25s;
-}
-/* On mouse-over, add a deeper shadow */
-.card:hover {
-    box-shadow: #B7C4E3;
-}
+
 .form-header {
     height: 60px;
     padding: 20px 30px 0;
@@ -60,28 +55,43 @@ h2 {
     font-family: "Karma", sans-serif
 }
 
-/* Extra styles for the cancel button */
-.cancelbtn {
-    background-color: #f4b02e;
+.heading
+{
+    font-size: 20px;
+    text-align: center;
 }
+/*Float cancel and signup buttons and add an equal width*/
+.btncancel{
+    float: left;
+    width: 40%;
+}
+.btnsignup {
+    float: right;
+    width: 40%;
+
+}
+/* Extra styles for the cancel button */
+
 .deletebtn {
     background-color: #f44336;
     float: left;
-    width: 30%;
-    margin: 8px 10px;
+    width: 40%;
+
 }
-.sharebtn{
+.btnshare{
     background-color: #2613af;
     float: right;
-    width: 30%;
-    margin: 8px 10px;
+    width: 40%;
+
 }
 
 /* Add padding to container elements */
 .container {
-    padding: 2px 16px;
-    width: 50%;
+    padding: 16px;
     margin: auto;
+    width: 40%;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px
 }
 .btm_buttons {
     overflow: auto;
@@ -89,7 +99,12 @@ h2 {
     width: 415px;
 }
 /* Clear floats */
-.btm_buttons::after {
+.clearfix
+{
+    padding-top: 20px;
+}
+/* Clear floats */
+.clearfix::after {
     content: "";
     clear: both;
     display: table;
