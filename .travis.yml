@@ -7,7 +7,7 @@ install:
 # command to run tests
 script:
   - nosetests -v
-  - nosetests --with-coverage --cover-inclusive --cover-package=ShopphingList
+  - nosetests --with-coverage --cover-inclusive
   - "coveralls"
 
 after_sucess:
