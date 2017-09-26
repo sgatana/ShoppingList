@@ -8,4 +8,4 @@ Shopping List app has been developed in python. It allows Users to add, remember
 2. Ensure you have python 3.6  installed in your machine by running python --version.
 3. Use Editor of your preference, I would recommend you use PyCharm.
 5. Install flask and flask extensions.
-4. Move to the app directory cd ShoppingList
+4. Move to the app directory cd ShoppingList 0707001786
