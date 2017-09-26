@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/sgatana/ShoppingList.svg?branch=develop)](https://travis-ci.org/sgatana/ShoppingList)
+[![Coverage Status](https://coveralls.io/repos/github/sgatana/ShoppingList/badge.svg?branch=master)](https://coveralls.io/github/sgatana/ShoppingList?branch=master)
 # ShoppingList
 Shopping List app has been developed in python. It allows Users to add, remember, delete and share their shopping lists with others
 
