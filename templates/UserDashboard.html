@@ -6,7 +6,7 @@
 
 {% endblock %}
 
-<body >
+<body>
 {% block page_content %}
 
         <button class="btn btn-info pull-right" onclick="window.location.href='{{ url_for('create_shopping_lst') }}'">Create A ShoppingList<span>&rarr;</span></button>
@@ -18,6 +18,23 @@
                     <h3><strong> {{ shoppinglist_name }} </strong></h3>
                 </div>
                 <div class="form-body">
+
+                 <a href="{{ url_for('share_shoppinglist',
+                        shopping_list_name=current_user.get_shopping_lst(shoppinglist_name).name,
+                        description=current_user.get_shopping_lst(shoppinglist_name).description) }}" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-share"></span><strong>Share</strong>
+                    </a>
+
+                    <a href="{{ url_for('delete_shopping_list',
+                        shopping_list_name=current_user.get_shopping_lst(shoppinglist_name).name) }} " class="btn btn-danger">
+                        <i class="icon-trash icon-white"></i>
+                        <span class="glyphicon glyphicon-remove"></span><strong>Delete</strong>
+                    </a>
+                    <a href="{{ url_for('add_item',
+                        shopping_list_name=current_user.get_shopping_lst(shoppinglist_name).name) }}" class="btn btn-success">
+                        <span class="glyphicon glyphicon-plus"></span>Add Item
+                    </a>
+
                     <ol>
                         {% if shopping_list.get_categories() > 0 %}
                         {% for key, cat in shopping_list.categories.items() %}
@@ -48,23 +65,12 @@
                         <ul>You Currently Have no items In your shopping list</ul>
                         {% endif %}
                     </ol>
+                    <!--
+
+                    return the buttons here if they dont work
+                    -->
 
 
-                    <a href="{{ url_for('share_shoppinglist',
-                        shopping_list_name=current_user.get_shopping_lst(shoppinglist_name).name,
-                        description=current_user.get_shopping_lst(shoppinglist_name).description) }}" class="btn btn-primary">
-                        <span class="glyphicon glyphicon-share"></span><strong>Share</strong>
-                    </a>
-
-                    <a href="{{ url_for('delete_shopping_list',
-                        shopping_list_name=current_user.get_shopping_lst(shoppinglist_name).name) }} " class="btn btn-danger">
-                        <i class="icon-trash icon-white"></i>
-                        <span class="glyphicon glyphicon-remove"></span><strong>Delete</strong>
-                    </a>
-                    <a href="{{ url_for('add_item',
-                        shopping_list_name=current_user.get_shopping_lst(shoppinglist_name).name) }}" class="btn btn-success">
-                        <span class="glyphicon glyphicon-plus"></span>Add Item
-                    </a>
 
                 </div>
             </form>

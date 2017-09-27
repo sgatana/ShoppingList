@@ -21,7 +21,7 @@ class User(UserMixin):
 
         """a method that adds shopping list"""
         if Shoppinglist.name in self.shopping_lists:
-            raise ShoppingListAlreadyExist(Shoppinglist.name + "has been created")
+            raise ShoppingListAlreadyExist
         self.shopping_lists.update({Shoppinglist.name: Shoppinglist})
 
     def delete_shopping_list(self, ShoppinglistName):
