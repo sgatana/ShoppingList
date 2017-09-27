@@ -6,24 +6,16 @@
 
 {% endblock %}
 
-<body>
+<body xmlns="http://www.w3.org/1999/html">
 {% block page_content %}
 
-<form method="post">
-    <div class="items-container">
-        <button type="submit" class="new-btn"><a href="{{ url_for('create_shopping_lst') }}">Create A ShoppingList</a>
-        </button>
-        <div class="form-header">
-            <h2 class="title">Awesome ShoppingList App</h2>
-        </div>
-
-        <div class="card">
-            {% if current_user.get_num_of_shopping_lists() > 0 %}
-            {% for shoppinglist_name, shopping_list in current_user.shopping_lists.items() %}
-
-            <form method="post" id="categories">
+        <button class="btn btn-info pull-right" onclick="window.location.href='{{ url_for('create_shopping_lst') }}'">Create A ShoppingList</button>
+        {% if current_user.get_num_of_shopping_lists() > 0 %}
+        {% for shoppinglist_name, shopping_list in current_user.shopping_lists.items() %}
+        <div class="form">
+        <form method="post" id="categories">
                 <div class="form-header">
-                    <h3 class="title"><strong> {{ shoppinglist_name }} </strong></h3>
+                    <h3><strong> {{ shoppinglist_name }} </strong></h3>
                 </div>
                 <div class="form-body">
                     <ol>
@@ -57,35 +49,39 @@
                         {% endif %}
                     </ol>
 
-                    <!-- Buttons -->
 
                     <a href="{{ url_for('share_shoppinglist',
                         shopping_list_name=current_user.get_shopping_lst(shoppinglist_name).name,
-                        description=current_user.get_shopping_lst(shoppinglist_name).description) }}"
-                       class="btn btn-primary">
-                        <i class="icon-edit icon-white"></i>
-                        <span><strong>Share</strong></span>
+                        description=current_user.get_shopping_lst(shoppinglist_name).description) }}" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-share"></span><strong>Share</strong>
                     </a>
+
                     <a href="{{ url_for('delete_shopping_list',
-                        shopping_list_name=current_user.get_shopping_lst(shoppinglist_name).name) }}"
-                       class="btn btn-danger">
+                        shopping_list_name=current_user.get_shopping_lst(shoppinglist_name).name) }} " class="btn btn-danger">
                         <i class="icon-trash icon-white"></i>
-                        <span><strong>Delete</strong></span>
+                        <span class="glyphicon glyphicon-remove"></span><strong>Delete</strong>
                     </a>
-                    <button type="submit" class="updatebtn">
-                        <a href="{{ url_for('add_item',
-                        shopping_list_name=current_user.get_shopping_lst(shoppinglist_name).name) }}">Add Item</a>
-                    </button>
-                    <!-- End Buttons -->
+                    <a href="{{ url_for('add_item',
+                        shopping_list_name=current_user.get_shopping_lst(shoppinglist_name).name) }}" class="btn btn-success">
+                        <span class="glyphicon glyphicon-plus"></span>Add Item
+                    </a>
+
                 </div>
             </form>
-            {% endfor %}
-            {% else %}
-            <ul>You Currently Do not have any Shopping List</ul>
-            {% endif%}
+            </div>
+        {% endfor %}
+        {% else %}
+        <div class = "form">
+            <ul>
+                You Currently Do not have any Shopping List<br>
+                Having a Shopping List gives you a lot of benefits like<br>
+                <ol>Time Saver</ol>
+                <ol>Money Saver</ol>
+                <ol>Makes Shopping Fun</ol>
+            </ul>
         </div>
-    </div>
-</form>
+        {% endif%}
+
 {% endblock %}
 </body>
 </html>

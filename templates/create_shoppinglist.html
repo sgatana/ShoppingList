@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- Extend base.html to reuse navigation tab and enable message flashing -->
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block head %}
+
+{{ super() }}
+    <meta charset="UTF-8">
+    <title>Create ShoppingList</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='dashboardStyles.css') }}">
+{% endblock %}
+
+<body>
+{% block page_content %}
+
+<form class="form" action="{{ url_for('create_shopping_lst') }}"
+      method="post">
+    <div class="form-header">
+        <h4 class="title">Create A new Shopping list</h4>
+    </div>
+    <div class="form">
+        {{ form.hidden_tag()}}
+        {{ wtf.form_field(form.name) }}
+        {{ wtf.form_field(form.body) }}
+
+        <div class="clearfix">
+            <button type="button"  class="btncancel" onclick="history.back()">
+                Cancel</button>
+            <button type="submit" class="btnsignup">Save</button>
+        </div>
+
+    </div>
+</form>
+{% endblock %}
+
+</body>
+</html>

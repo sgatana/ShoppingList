@@ -2,16 +2,29 @@ from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import  StringField, PasswordField, BooleanField
-from wtforms.validators import InputRequired, Email, Length
+from wtforms.validators import InputRequired, Email, Length, EqualTo
+from wtforms.widgets import TextArea
 
 class Login(FlaskForm):
-    email=StringField('username', validators=[InputRequired(), Email(message='Invalid Email Address')])
-    password=PasswordField('password', validators=[InputRequired(), Length(min=6, max=60)])
-    remember=BooleanField('Remember me?')
+    email = StringField('Username :', validators=[InputRequired(), Email(message='Invalid Email Address')])
+    password = PasswordField('Password :', validators=[InputRequired(), Length(min=6, max=60)])
+    remember = BooleanField('Remember me?')
 
 class Register(FlaskForm):
-    username=StringField('username', validators=[InputRequired(),Length(min=4, max=30)])
-    email=StringField('email', validators=[InputRequired(), Email(message='Invalid Email Address')])
-    password=PasswordField('password', validators=[InputRequired(), Length(min=6, max=60)])
-    confirm=PasswordField('confirm password', validators=[InputRequired(), Length(min=6, max=60)])
-    remember=BooleanField('By signing up, you agree with our terms and conditions')
+    username = StringField('Username :', validators=[InputRequired(),Length(min=4, max=30)])
+    email = StringField('Email :', validators=[InputRequired(), Email(message='Invalid Email Address')])
+    password = PasswordField('Password :', validators=[InputRequired(), EqualTo('confirm', message='Password mismatch'),
+                                                   Length(min=6, max=60)])
+    confirm = PasswordField('Confirm Password :', validators=[InputRequired(), Length(min=6, max=60)])
+    remember = BooleanField('By signing up, you agree with our terms and conditions')
+
+class CreateShoppingList(FlaskForm):
+    name = StringField("Name", validators=[InputRequired(), Length(min=4)])
+    body = StringField("Description", widget=TextArea())
+
+class AddItem(FlaskForm):
+    ItemName = StringField('Item Name', validators=[InputRequired(), Length(min=3)])
+    CatName = StringField('Category(Default is "General")', validators = [InputRequired(), Length
+    (min=3)] )
+    price = StringField('Price', validators = [InputRequired(), Length(min = 3)])
+    quantity = StringField('Quantiry', validators = [InputRequired(), Length(min = 1)])

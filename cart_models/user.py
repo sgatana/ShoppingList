@@ -45,5 +45,5 @@ class User(UserMixin):
         self.delete_shopping_list(shoppinglist.name)
         self.delete_shopping_list(shoppinglist)
 
-    def get_num_of_shopping_list(self):
-        return len(self.shopping_list)
+    def get_num_of_shopping_lists(self):
+        return len(self.shopping_lists)

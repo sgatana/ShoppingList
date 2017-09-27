@@ -16,22 +16,37 @@ input[type=text], input[type=password] {
 }
 /* Set a style for all buttons */
 button {
-    background-color: #2e67af;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
+
+}
+.container-main {
+    position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: sans-serif;
+    background: #d6cbcb;
+    font-size: larger;
+    font-style: normal;
+}
+
+.items-container {
+    position: fixed;
     width: 100%;
+    height: 80%;
+    background: #F2F4F5;
+    overflow: scroll;
 }
 
 .btncancel, .btnsignup{
     border-radius: 5px;
 }
-.btncancel {
-    padding: 14px 20px;
-    background-color: #f4aa41;
-}
+
 button:hover{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
@@ -39,7 +54,7 @@ button a {
 	text-decoration: none;
 	color: #fff
 }
-/* Make form appear with card effect*/
+/* Make form appear with form effect*/
 
 .form-header {
     height: 60px;
@@ -49,10 +64,26 @@ button a {
 .form-body {
     padding: 30px 30px 30px;
 }
-
+.form{
+	width: 60%;
+	background-color: #ffffff;
+	border-radius: 2px;
+    box-shadow: 0 8px 16px 0 #ffffff;
+	margin:10px auto auto;
+	transition: all 0.25s;
+}
+/* On mouse-over, add a deeper shadow */
+.form:hover {
+    box-shadow: #B7C4E3;
+}
+.form-container {
+    padding: 2px 16px;
+    width: 50%;
+    margin: auto;
+}
 h2 {
     text-align: center;
-    font-family: "Karma", sans-serif
+    font-family: sans-serif
 }
 
 .heading
@@ -64,10 +95,14 @@ h2 {
 .btncancel{
     float: left;
     width: 40%;
+    padding: 14px 20px;
+    background-color: #f4aa41;
 }
 .btnsignup {
     float: right;
     width: 40%;
+    padding: 14px 20px;
+    background-color: #3d37f4;
 
 }
 /* Extra styles for the cancel button */
@@ -89,7 +124,7 @@ h2 {
 .container {
     padding: 16px;
     margin: auto;
-    width: 40%;
+    width: 80%;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 14px
 }
@@ -98,7 +133,7 @@ h2 {
     height: 50px;
     width: 415px;
 }
-/* Clear floats */
+
 .clearfix
 {
     padding-top: 20px;
@@ -122,4 +157,5 @@ h2 {
     background: #4540c8;
     margin: 8px 10px;
     float:right;
+    border-right:5px;
 }
