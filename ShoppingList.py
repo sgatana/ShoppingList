@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, flash
+from flask import Flask, render_template, url_for, flash, Markup
 from flask_login import LoginManager, login_user, UserMixin, current_user, login_required, logout_user
 from werkzeug.utils import redirect
 from flask_bootstrap import Bootstrap
@@ -67,7 +67,8 @@ def login():
                     flash("invalid username or password", 'danger')
 
             else:
-                flash("user does not exist", 'danger')
+                flash(Markup('user does not exist, Please <a href="/register">click here to register</a>'), 'danger')
+               # flash(Markup("user does not exist <a href='/register'>click here to register</a>", 'danger'))
 
         return render_template("Login.html", form=form)
 

@@ -30,11 +30,14 @@ button {
     margin-right: auto;
     margin-left: auto;
     font-family: sans-serif;
-    background: #d6cbcb;
-    font-size: larger;
+    background: #7653f9;
+    font-size: 18px;
+    color: #ffffff;
     font-style: normal;
 }
-
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+}
 .items-container {
     position: fixed;
     width: 100%;

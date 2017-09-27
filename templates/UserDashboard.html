@@ -6,10 +6,10 @@
 
 {% endblock %}
 
-<body xmlns="http://www.w3.org/1999/html">
+<body >
 {% block page_content %}
 
-        <button class="btn btn-info pull-right" onclick="window.location.href='{{ url_for('create_shopping_lst') }}'">Create A ShoppingList</button>
+        <button class="btn btn-info pull-right" onclick="window.location.href='{{ url_for('create_shopping_lst') }}'">Create A ShoppingList<span>&rarr;</span></button>
         {% if current_user.get_num_of_shopping_lists() > 0 %}
         {% for shoppinglist_name, shopping_list in current_user.shopping_lists.items() %}
         <div class="form">
@@ -73,11 +73,12 @@
         {% else %}
         <div class = "form">
             <ul>
-                You Currently Do not have any Shopping List<br>
+                You Currently Do not have any Shopping List
+               <!--<br>
                 Having a Shopping List gives you a lot of benefits like<br>
                 <ol>Time Saver</ol>
                 <ol>Money Saver</ol>
-                <ol>Makes Shopping Fun</ol>
+                <ol>Makes Shopping Fun</ol>-->
             </ul>
         </div>
         {% endif%}

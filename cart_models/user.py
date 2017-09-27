@@ -43,7 +43,7 @@ class User(UserMixin):
 
         """method accept parameter and updates your shopping list"""
         self.delete_shopping_list(shoppinglist.name)
-        self.delete_shopping_list(shoppinglist)
+        self.create_shopping_lst(shoppinglist)
 
     def get_num_of_shopping_lists(self):
         return len(self.shopping_lists)
