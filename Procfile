@@ -1,1 +1,1 @@
-web: gunicorn ShoppingList:app
+web: waitress ShoppingList:app
