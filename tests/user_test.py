@@ -26,13 +26,13 @@ class TestUser(unittest.TestCase):
     def test_user_delete_nonexisting_shopping_list(self):
         self.assertEqual(0, len(self.user.shopping_lists))
         with self.assertRaises(ShoppingListDoesNotExist):
-            self.user.delete_shopping_list("List does not exist")
+            self.user.delete_shopping_list('Naivas')
 
     def test_exception_raised_on_try_to_create_similar_shopping_lists(self):
         self.user.create_shopping_lst(self.shopping_list)
         self.user.create_shopping_lst(ShoppingList("naivas", "buy stuff"))
         with self.assertRaises(ShoppingListAlreadyExist):
-            self.user.create_shopping_lst(ShoppingList("naivas", "Already existing"))
+            self.user.create_shopping_lst(ShoppingList("naivas", "but staff"))
 
     def test_get_shopping_list_returns_if_item_found(self):
         self.user.create_shopping_lst(self.shopping_list)

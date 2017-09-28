@@ -24,7 +24,7 @@ class CreateShoppingList(FlaskForm):
 
 class AddItem(FlaskForm):
     ItemName = StringField('Item Name', validators=[InputRequired(), Length(min=3)])
-    CatName = StringField('Category(Default is "General")', validators = [InputRequired(), Length
+    CatName = StringField('Category', validators = [InputRequired(), Length
     (min=3)] )
     price = StringField('Price', validators = [InputRequired(), Length(min = 3)])
-    quantity = StringField('Quantiry', validators = [InputRequired(), Length(min = 1)])
+    quantity = StringField('Quantity', validators = [InputRequired(), Length(min = 1)])

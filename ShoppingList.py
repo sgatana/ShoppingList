@@ -105,23 +105,18 @@ def add_item(shopping_list_name):
     form = AddItem()
     if form.validate_on_submit():
         """ 
-        Instantiate an Item Object from the 
-        form data submitted by the current_user
-        """
-        item = Item(form.ItemName.data, form.price.data,
-                    form.quantity.data, form.CatName.data)
+        Instantiate an Item Object from the form data submitted by the current_user """
+        item = Item(form.ItemName.data, form.price.data, form.quantity.data, form.CatName.data)
         try:
             shopping_list = current_user.get_shopping_lst(shopping_list_name)
             shopping_list.add_item(item)
-            current_user.update_shopping_list(shopping_list)
-            flash(" " + item.name +
-                  " Successfully Added into Shopping List " +
-                  shopping_list_name, "info")
+            #current_user.update_shopping_list(shopping_list)
+            flash(" " + item.name + " Successfully Added into Shopping List " + shopping_list_name, "info")
 
             return redirect(url_for('index'))
 
         except ItemAlreadyExist:
-            flash(item.name + " Already Exists Try updating it instead", "warning")
+            flash(item.name + " Already Exists", "warning")
             return redirect(url_for('index'))
     else:
         return render_template("add_item.html", form=form, shopping_list_name=shopping_list_name)
@@ -138,13 +133,12 @@ def update_item(shopping_list_name, name, price, quantity, category):
                           quantity=quantity)
 
     if form.validate_on_submit():
-        item = Item(name=form.item_name.data, price=form.item_price.data,
-                    quantity=form.item_quantity.data,
-                    category=form.category.data)
+        item = Item(name=form.ItemName.data, price=form.price.data,
+                    quantity=form.quantity.data,  category=form.CatName.data)
 
         try:
             shopping_list = current_user.get_shopping_lst(shopping_list_name)
-            shopping_list.update_item(new_item=item, old_item=item_to_update)
+            shopping_list.update_item(item=item, )
             flash(item.name + "Has been Successfully Updated", "success")
         except ShoppingListDoesNotExist:
             flash("No Shopping List With name " + shopping_list_name +
@@ -155,9 +149,7 @@ def update_item(shopping_list_name, name, price, quantity, category):
                   "warning")
         return redirect(url_for('index'))
     else:
-        return render_template("update_item.html", form=form,
-                               shopping_list_name=shopping_list_name,
-                               item=item_to_update)
+        return render_template("update_item.html", form=form, shopping_list_name=shopping_list_name, item=item_to_update)
 
 
 
@@ -167,7 +159,7 @@ def share_shoppinglist():
     """
     This Endpoint Will sllow users to share their shopping lists with other users
     """
-    flash("Coming Soon.", "info")
+    flash("Bare with us, this module will be live soon!.", "info")
     return redirect(url_for('index'))
 
 
@@ -201,8 +193,7 @@ def delete_item(shopping_list_name, name, price, quantity, category):
         except ShoppingListDoesNotExist:
             flash("Shopping List " + shopping_list_name + " Does Not Exist", "warning")
         except ItemDoesNotExist:
-            flash("The Item " + item.name + "That You Wish To Delete Does Not Exist",
-                  "warning")
+            flash("The Item " + item.name + "That You Wish To Delete Does Not Exist", "warning")
 
         return redirect(url_for('index'))
 
@@ -211,7 +202,7 @@ def delete_item(shopping_list_name, name, price, quantity, category):
 def logout():
     """Logs Out A Currently LoggedIn User"""
     logout_user()
-    flash("Logged Out Successfully", "success")
+    flash("Thank you for using our App, Goodbye!", "success")
     return redirect(url_for("login"))
 
 

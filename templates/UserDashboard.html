@@ -27,7 +27,6 @@
 
                     <a href="{{ url_for('delete_shopping_list',
                         shopping_list_name=current_user.get_shopping_lst(shoppinglist_name).name) }} " class="btn btn-danger">
-                        <i class="icon-trash icon-white"></i>
                         <span class="glyphicon glyphicon-remove"></span><strong>Delete</strong>
                     </a>
                     <a href="{{ url_for('add_item',
@@ -35,43 +34,48 @@
                         <span class="glyphicon glyphicon-plus"></span>Add Item
                     </a>
 
-                    <ol>
+                    <table class="table table-responsive table-bordered">
                         {% if shopping_list.get_categories() > 0 %}
                         {% for key, cat in shopping_list.categories.items() %}
-                        <ul>
-
-                            <strong>{{ key }}</strong>
-                            {% for item_name, item in cat.items() %}
-                            <li>{{ item.quantity }} {{ item.name }}(s)
-                                Costing Sh {{ item.price }} Each
+                        <tr>
+                        <td colspan="4">
+                         <strong>{{ key }}</strong>
+                            {% for item_name, item in cat.items() %}</td></tr>
+                            <tr>
+                             <td>Quantity</td>
+                             <td>Name</td>
+                             <td>Price</td>
+                             <td>Actions</td>
+                            </tr>
+                             <tr>
+                                <td>{{ item.quantity }}</td>
+                                <td>{{ item.name }}</td>
+                                <td>KSh. {{ item.price }} Each </td>
+                                <td>
                                 <button style="height:20px;width:50px;margin-bottom:10px" type="button"
                                         class="btn btn-info btn-xs"><a href="{{ url_for('update_item',shopping_list_name=shoppinglist_name,
                                          name=item.name, price=item.price, quantity=item.quantity, category=key) }}">
                                     Edit</a>
                                 </button>
                                 <button style="height:20px;width:50px;margin-bottom:10px; " type="button"
-                                        class="btn btn-danger btn-xs"
-                                >
+                                        class="btn btn-danger btn-xs">
                                     <a href="{{ url_for('delete_item', shopping_list_name=shoppinglist_name,
                                          name=item.name, price=item.price, quantity=item.quantity, category=key) }}">
                                         Delete</a>
                                 </button>
-                            </li>
+                            </td>
                             {% endfor %}
 
-                        </ul>
+                        </tr>
                         {% endfor %}
                         {% else %}
                         <ul>You Currently Have no items In your shopping list</ul>
                         {% endif %}
-                    </ol>
+                    </table>
                     <!--
 
                     return the buttons here if they dont work
                     -->
-
-
-
                 </div>
             </form>
             </div>
@@ -80,11 +84,6 @@
         <div class = "form">
             <ul>
                 You Currently Do not have any Shopping List
-               <!--<br>
-                Having a Shopping List gives you a lot of benefits like<br>
-                <ol>Time Saver</ol>
-                <ol>Money Saver</ol>
-                <ol>Makes Shopping Fun</ol>-->
             </ul>
         </div>
         {% endif%}

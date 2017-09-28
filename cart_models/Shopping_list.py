@@ -9,19 +9,18 @@ class ShoppingList:
         self.categories = {}
 
     def add_item(self, item):
-        """If Item is already added Raise an exception"""
         try:
             self.get_item(item)
-            raise ItemAlreadyExist("Item already Added")
+            raise ItemAlreadyExist()
         except KeyError:
             cat_dict = self.categories.get(item.category, {})
-            # First Update The inner Dictionary
+
             cat_dict.update({item.name: item})
             self.categories.update({item.category: cat_dict})
 
     def remove_item(self, item):
         try:
-            """a category can be deleted if it contains on item  """
+            """a category can be deleted if it doesnt have an item  """
             if len(self.categories[item.category]) == 1:
                 del (self.categories[item.category])
             else:

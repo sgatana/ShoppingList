@@ -8,7 +8,7 @@ class Accounts:
         self.users = {}
 
     def add_user(self, user):
-        """ This Method Creates a User and is added into dictionary of users """
+        """ Create User and add to the dictionary """
         if user.id in self.users:
             raise UserAlreadyExist
         else:
