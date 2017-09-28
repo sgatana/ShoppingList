@@ -77,7 +77,7 @@
         <entry file="file://$PROJECT_DIR$/Procfile">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+              <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -582,7 +582,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506599888341</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="[UPDATE] update procfile">
+      <created>1506599923982</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1506599923982</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -651,7 +658,8 @@
     <MESSAGE value="[UPDATE] update the base page" />
     <MESSAGE value="[UPDATE] update the dashboard" />
     <MESSAGE value="[UPDATE] update requirements.txt file" />
-    <option name="LAST_COMMIT_MESSAGE" value="[UPDATE] update requirements.txt file" />
+    <MESSAGE value="[UPDATE] update procfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="[UPDATE] update procfile" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1037,7 +1045,7 @@
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="13" />
           <folding />
         </state>
       </provider>
