@@ -15,6 +15,6 @@ Run the tests by using the nose, you can do this by typing nosetests on the term
 ## Deployment
 deploy the project to heroku, create or sign in to heroku accout, create new app, select 'connect to Github', select develop branch and hit deploy.
 
-##Built with
+## Built with
 1. Flask - the python web microframework
 2. Jinja - a template engine for the Python
