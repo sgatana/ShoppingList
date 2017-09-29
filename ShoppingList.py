@@ -203,6 +203,9 @@ def logout():
     flash("Thank you for using our App, Goodbye!", "success")
     return redirect(url_for("login"))
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('Notfound.html'), 404
 
 
 if __name__ == '__main__':
