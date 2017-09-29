@@ -1,9 +1,9 @@
 from Exceptions import ItemDoesNotExist, ItemAlreadyExist
 
-
+#This Class Manages Items In a User Shopping List
 class ShoppingList:
     def __init__(self, name, description):
-        """ This Class Manages Items In a User Shopping List"""
+
         self.name = name
         self.description = description
         self.categories = {}
@@ -16,11 +16,12 @@ class ShoppingList:
             cat_dict = self.categories.get(item.category, {})
 
             cat_dict.update({item.name: item})
+
             self.categories.update({item.category: cat_dict})
 
     def remove_item(self, item):
         try:
-            """a category can be deleted if it doesnt have an item  """
+            #a category can be deleted if it doesnt have an item
             if len(self.categories[item.category]) == 1:
                 del (self.categories[item.category])
             else:
@@ -33,6 +34,7 @@ class ShoppingList:
         self.add_item(item)
 
     def get_item(self, item):
+
         """Returns an item object """
         return self.categories[item.category][item.name]
 

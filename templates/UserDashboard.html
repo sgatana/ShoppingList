@@ -36,33 +36,31 @@
 
                     <table class="table table-responsive table-bordered">
                         {% if shopping_list.get_categories() > 0 %}
-                        {% for key, cat in shopping_list.categories.items() %}
-                        <tr>
-                        <td colspan="4">
-                         <strong>{{ key }}</strong>
-                            {% for item_name, item in cat.items() %}</td></tr>
                             <tr>
                              <td>Quantity</td>
                              <td>Name</td>
                              <td>Price</td>
                              <td>Actions</td>
                             </tr>
+                        {% for key, cat in shopping_list.categories.items() %}
+                        <tr>
+                        <td colspan="4">
+                         <strong>{{ key }}</strong>
+                            {% for item_name, item in cat.items() %}</td></tr>
+
                              <tr>
                                 <td>{{ item.quantity }}</td>
                                 <td>{{ item.name }}</td>
                                 <td>KSh. {{ item.price }} Each </td>
                                 <td>
-                                <button style="height:20px;width:50px;margin-bottom:10px" type="button"
-                                        class="btn btn-info btn-xs"><a href="{{ url_for('update_item',shopping_list_name=shoppinglist_name,
-                                         name=item.name, price=item.price, quantity=item.quantity, category=key) }}">
-                                    Edit</a>
-                                </button>
-                                <button style="height:20px;width:50px;margin-bottom:10px; " type="button"
-                                        class="btn btn-danger btn-xs">
-                                    <a href="{{ url_for('delete_item', shopping_list_name=shoppinglist_name,
-                                         name=item.name, price=item.price, quantity=item.quantity, category=key) }}">
-                                        Delete</a>
-                                </button>
+                                <a href="{{ url_for('update_item',shopping_list_name=shoppinglist_name,
+                                         name=item.name, price=item.price, quantity=item.quantity, category=key) }}" class="btn btn-info btn-xs">
+                                        Edit
+                                </a>
+
+                                <a href="{{ url_for('delete_item', shopping_list_name=shoppinglist_name, name=item.name, price=item.price,
+                                quantity=item.quantity, category=key)  }} "  class="btn btn-danger btn-xs">Delete
+                                </a>
                             </td>
                             {% endfor %}
 

@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, flash, Markup
-from flask_login import LoginManager, login_user, UserMixin, current_user, login_required, logout_user
+from flask_login import LoginManager, login_user, current_user, login_required, logout_user
 from werkzeug.utils import redirect
 from flask_bootstrap import Bootstrap
 from Exceptions import ShoppingListDoesNotExist, ShoppingListAlreadyExist, UserDoesNotExist, UserAlreadyExist, ItemDoesNotExist, ItemAlreadyExist
@@ -17,7 +17,7 @@ accounts=Accounts()
 login_manager=LoginManager()
 
 login_manager.login_view = "/login"
-login_manager.login_message_category="info"
+login_manager.login_message_category = "info"
 login_manager.init_app(app)
 
 @login_manager.user_loader
@@ -68,8 +68,6 @@ def login():
 
             else:
                 flash(Markup('user does not exist, Please <a href="/register">click here to register</a>'), 'danger')
-               # flash(Markup("user does not exist <a href='/register'>click here to register</a>", 'danger'))
-
         return render_template("Login.html", form=form)
 
 
@@ -166,15 +164,15 @@ def share_shoppinglist():
 @app.route("/delete_shopping_list/<shopping_list_name>", methods=['GET', 'POST'])
 @login_required
 def delete_shopping_list(shopping_list_name):
-    try:
+    #try:
         """
         Uses delete_shopping_list from user class to delete a shopping list
         """
         current_user.delete_shopping_list(shopping_list_name)
         flash(shopping_list_name + " Deleted Successfully ", "success")
-    except ShoppingListDoesNotExist:
-        flash(shopping_list_name + " Does not Exist ", "warning")
-    return redirect(url_for('index'))
+  # except ShoppingListDoesNotExist:
+      #  flash(shopping_list_name + " Does not Exist ", "warning")
+        return redirect(url_for('index'))
 
 
 @app.route("/delete_item/<shopping_list_name>/<name>/<price>/<quantity>/"
