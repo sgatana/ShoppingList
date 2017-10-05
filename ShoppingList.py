@@ -18,6 +18,7 @@ login_manager=LoginManager()
 
 login_manager.login_view = "/login"
 login_manager.login_message_category = "info"
+#login_manager.login_message = 'please login to access the dashboard'
 login_manager.init_app(app)
 
 @login_manager.user_loader

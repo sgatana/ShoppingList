@@ -13,8 +13,9 @@ class ShoppingList:
             self.get_item(item)
             raise ItemAlreadyExist()
         except KeyError:
+            #get the category
             cat_dict = self.categories.get(item.category, {})
-
+            #add the item to that category, if the its a new category, both item and category are added
             cat_dict.update({item.name: item})
 
             self.categories.update({item.category: cat_dict})

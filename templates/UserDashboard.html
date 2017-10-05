@@ -9,7 +9,8 @@
 <body>
 {% block page_content %}
 
-        <button class="btn btn-info pull-right" onclick="window.location.href='{{ url_for('create_shopping_lst') }}'">Create A ShoppingList<span>&rarr;</span></button>
+        <button class="btn btn-info pull-right" onclick="window.location.href='{{ url_for('create_shopping_lst') }}'">
+        Create A ShoppingList<span>&rarr;</span></button>
         {% if current_user.get_num_of_shopping_lists() > 0 %}
         {% for shoppinglist_name, shopping_list in current_user.shopping_lists.items() %}
         <div class="form">
@@ -21,20 +22,22 @@
 
                  <a href="{{ url_for('share_shoppinglist',
                         shopping_list_name=current_user.get_shopping_lst(shoppinglist_name).name,
-                        description=current_user.get_shopping_lst(shoppinglist_name).description) }}" class="btn btn-primary">
+                        description=current_user.get_shopping_lst(shoppinglist_name).description) }}"
+                        class="btn btn-primary">
                         <span class="glyphicon glyphicon-share"></span><strong>Share</strong>
-                    </a>
+                 </a>
 
-                    <a href="{{ url_for('delete_shopping_list',
+                <a href="{{ url_for('delete_shopping_list',
                         shopping_list_name=current_user.get_shopping_lst(shoppinglist_name).name) }} " class="btn btn-danger">
                         <span class="glyphicon glyphicon-remove"></span><strong>Delete</strong>
-                    </a>
-                    <a href="{{ url_for('add_item',
+                </a>
+
+                <a href="{{ url_for('add_item',
                         shopping_list_name=current_user.get_shopping_lst(shoppinglist_name).name) }}" class="btn btn-success">
                         <span class="glyphicon glyphicon-plus"></span>Add Item
-                    </a>
+                </a>
 
-                    <table class="table table-responsive table-bordered">
+                <table class="table table-responsive table-bordered">
                         {% if shopping_list.get_categories() > 0 %}
                             <tr>
                              <td>Quantity</td>
@@ -54,12 +57,13 @@
                                 <td>KSh. {{ item.price }} Each </td>
                                 <td>
                                 <a href="{{ url_for('update_item',shopping_list_name=shoppinglist_name,
-                                         name=item.name, price=item.price, quantity=item.quantity, category=key) }}" class="btn btn-info btn-xs">
-                                        Edit
+                                         name=item.name, price=item.price, quantity=item.quantity, category=key) }}"
+                                         class="btn btn-info btn-xs">Edit
                                 </a>
 
-                                <a href="{{ url_for('delete_item', shopping_list_name=shoppinglist_name, name=item.name, price=item.price,
-                                quantity=item.quantity, category=key)  }} "  class="btn btn-danger btn-xs">Delete
+                                <a href="{{ url_for('delete_item', shopping_list_name=shoppinglist_name, name=item.name,
+                                 price=item.price, quantity=item.quantity, category=key)  }} "
+                                 class="btn btn-danger btn-xs">Delete
                                 </a>
                             </td>
                             {% endfor %}
@@ -69,7 +73,7 @@
                         {% else %}
                         <ul>You Currently Have no items In your shopping list</ul>
                         {% endif %}
-                    </table>
+                </table>
                     <!--
 
                     return the buttons here if they dont work
