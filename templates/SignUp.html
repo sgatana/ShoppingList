@@ -18,10 +18,9 @@
 
 <div class="container">
     <h3 class="heading">Shopping List App</h3>
-<form class="form" method="post" action="/">
+<form class="form" method="post" action="/register">
     <fieldset>
         <legend><h4>User Signup Form</h4></legend>
-     {{ form.hidden_tag()}}
         {{ form.hidden_tag()}}
         {{ wtf.form_field(form.username) }}
         {{ wtf.form_field(form.email) }}

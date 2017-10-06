@@ -12,10 +12,11 @@
 {% endblock %}
 
 {% block navbar %}
-<div class="navbar navbar-default navbar-fixed-top navbar-offset" role="navigation">
-    <div class="container-big">
+<div class="container-fluid">
+<div class="navbar navbar-default  " role="navigation">
+    <div class="container-main">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/">ShoppingListApp</a>
+            <a class="navbar-brand" href="/">Shopping List App</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-left">
@@ -23,22 +24,20 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if current_user.is_authenticated %}
-                <li><a href="/logout">Logout</a></li>
-                {% endif %}
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                {% if current_user.is_authenticated %}
-                <p style="color: #2196F3">Welcome {{ current_user.name }} </p>
+                    <li><a href="#" style="color: #2196F3">Welcome {{ current_user.name }}</a> </li>
+                    <li><a href="/logout">Logout</a></li>
                 {% endif %}
             </ul>
         </div>
     </div>
 </div>
 {% endblock %}
+</div>
 
 {% block content %}
-<div class="container-fluid">
-    <div class="container">
+<div class="container">
+
+    <div class="row">
         {% for popup , message in get_flashed_messages(with_categories=true) %}
         <div class="alert alert-{{ popup }} alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -46,8 +45,11 @@
         </div>
         {% endfor %}
     </div>
+    <div class="row">
 
+    </div>
+    <div class="row">
     {% block page_content %}{% endblock %}
-
+    </div>
 </div>
 {% endblock %}

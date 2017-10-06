@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block navbar %}
+{% endblock %}
+
+<body>
+{% block page_content %}
+    <div class="container">
+    <h3 class="heading">Shopping List App</h3>
+    <form class="form" method="post">
+    <fieldset>
+        <legend><h4 class="title">Update Item </h4></legend>
+
+        {{ form.csrf_token }}
+
+        {{ form.ItemName.label }} {{ form.ItemName(value = item.name) }}
+
+        {{ form.price.label }} {{ form.price(value = item.price) }}
+
+        {{ form.quantity.label }} {{ form.quantity(value = item.quantity) }}
+
+        {{ form.CatName.label }} {{ form.CatName (value = item.category) }}
+
+
+        <div class="clearfix">
+            <button type="button"  class="btncancel" onclick="history.back()" >Cancel</button>
+
+            <button type="submit" class="btnsignup">Save</button>
+        </div>
+
+    </fieldset>
+    </form>
+    </div>
+{% endblock %}
+
+</body>
+</html>
