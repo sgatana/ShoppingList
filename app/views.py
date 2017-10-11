@@ -1,14 +1,14 @@
-from flask import Flask, render_template, url_for, flash, Markup
-from flask_login import LoginManager, login_user, current_user, login_required, logout_user
-from werkzeug.utils import redirect
-from flask_bootstrap import Bootstrap
-from Exceptions import ShoppingListDoesNotExist, ShoppingListAlreadyExist, UserDoesNotExist, UserAlreadyExist, ItemDoesNotExist, ItemAlreadyExist
-from cart_models.user import User
-from cart_models.User_Account import Accounts
 from cart_models.Shopping_list import ShoppingList
+from cart_models.User_Account import Accounts
 from cart_models.item import Item
+from flask import Flask, render_template, url_for, flash, Markup
+from flask_bootstrap import Bootstrap
+from flask_login import LoginManager, login_user, current_user, login_required, logout_user
 from forms import Register, Login, CreateShoppingList, AddItem
+from werkzeug.utils import redirect
 
+from app.Exceptions import ShoppingListDoesNotExist, ShoppingListAlreadyExist, ItemDoesNotExist, ItemAlreadyExist
+from app.cart_models.user import User
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'thisismysecretkey'

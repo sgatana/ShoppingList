@@ -1,7 +1,9 @@
 import unittest
-from Exceptions import UserAlreadyExist, UserDoesNotExist
-from cart_models.User_Account import Accounts
-from cart_models.user import User
+
+from app.cart_models.User_Account import Accounts
+
+from app.Exceptions import UserAlreadyExist, UserDoesNotExist
+from app.cart_models.user import User
 
 
 class TestAccount(unittest.TestCase):

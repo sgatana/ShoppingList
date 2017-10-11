@@ -2,7 +2,10 @@
 venv
 __pycache__
 .idea/preferred-vcs.xml
-cart_models/__pycache__/
+app/cart_models/__pycache__/
 tests/__pycache__/
 venv/
+
+.coverage
+
 
