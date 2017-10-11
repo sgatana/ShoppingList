@@ -1,8 +1,9 @@
 import unittest
 
-from Exceptions import ShoppingListDoesNotExist, ShoppingListAlreadyExist
-from cart_models.Shopping_list import ShoppingList
-from cart_models.user import User
+from app.cart_models.Shopping_list import ShoppingList
+
+from app.Exceptions import ShoppingListDoesNotExist, ShoppingListAlreadyExist
+from app.cart_models.user import User
 
 
 class TestUser(unittest.TestCase):

@@ -1,7 +1,10 @@
 import unittest
-from cart_models.item import Item
-from cart_models.Shopping_list import ShoppingList
-from Exceptions import ItemAlreadyExist, ItemDoesNotExist
+
+from app.cart_models.item import Item
+
+from app.Exceptions import ItemAlreadyExist, ItemDoesNotExist
+from app.cart_models.Shopping_list import ShoppingList
+
 
 class TestShoppingList (unittest.TestCase):
     def setUp(self):
