@@ -54,3 +54,7 @@ class TestShoppingList (unittest.TestCase):
         self.list.add_item(self.midmorning)
         with self.assertRaises(ItemAlreadyExist):
             self.list.add_item(self.midmorning)
+
+    def test_updating_non_existing_item_raises_exception(self):
+        with self.assertRaises(ItemDoesNotExist):
+            self.list.update_item(self.morning)
