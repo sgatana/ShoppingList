@@ -1,8 +1,11 @@
-.idea
+.idea/
 venv
 __pycache__
 .idea/preferred-vcs.xml
 app/cart_models/__pycache__/
 tests/__pycache__/
 venv/
+
 .coverage
+
+
