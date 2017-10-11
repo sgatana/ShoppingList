@@ -6,19 +6,15 @@ from flask_bootstrap import Bootstrap
 from flask_login import LoginManager, login_user, current_user, login_required, logout_user
 from .forms import Register, Login, CreateShoppingList, AddItem
 from werkzeug.utils import redirect
-
 from app.Exceptions import ShoppingListDoesNotExist, ShoppingListAlreadyExist, ItemDoesNotExist, ItemAlreadyExist
 from app.cart_models.user import User
-
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'thisismysecretkey'
 bootstrap = Bootstrap(app)
 accounts=Accounts()
 login_manager=LoginManager()
-
 login_manager.login_view = "/login"
 login_manager.login_message_category = "info"
-#login_manager.login_message = 'please login to access the dashboard'
 login_manager.init_app(app)
 
 @login_manager.user_loader
@@ -33,6 +29,7 @@ def index():
         return render_template("UserDashboard.html")
     else:
         return redirect(url_for("login"))
+
 
 @app.route("/register", methods=['GET', 'POST'])
 def signup():
@@ -51,6 +48,7 @@ def signup():
                 flash("User Created Successfully", "info")
                 return redirect("login")
     return render_template('SignUp.html', form=form)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -109,7 +107,7 @@ def add_item(shopping_list_name):
         try:
             shopping_list = current_user.get_shopping_lst(shopping_list_name)
             shopping_list.add_item(item)
-            #current_user.update_shopping_list(shopping_list)
+            # current_user.update_shopping_list(shopping_list)
             flash(" " + item.name + " Successfully Added into Shopping List " + shopping_list_name, "info")
 
             return redirect(url_for('index'))
@@ -151,7 +149,6 @@ def update_item(shopping_list_name, name, price, quantity, category):
         return render_template("update_item.html", form=form, shopping_list_name=shopping_list_name, item=item_to_update)
 
 
-
 @app.route("/share_shoppinglist", methods=['GET', 'POST'])
 @login_required
 def share_shoppinglist():
@@ -165,14 +162,8 @@ def share_shoppinglist():
 @app.route("/delete_shopping_list/<shopping_list_name>", methods=['GET', 'POST'])
 @login_required
 def delete_shopping_list(shopping_list_name):
-    #try:
-        """
-        Uses delete_shopping_list from user class to delete a shopping list
-        """
         current_user.delete_shopping_list(shopping_list_name)
         flash(shopping_list_name + " Deleted Successfully ", "success")
-  # except ShoppingListDoesNotExist:
-      #  flash(shopping_list_name + " Does not Exist ", "warning")
         return redirect(url_for('index'))
 
 
@@ -196,6 +187,7 @@ def delete_item(shopping_list_name, name, price, quantity, category):
 
         return redirect(url_for('index'))
 
+
 @app.route("/logout")
 @login_required
 def logout():
@@ -203,6 +195,7 @@ def logout():
     logout_user()
     flash("Thank you for using our App, Goodbye!", "success")
     return redirect(url_for("login"))
+
 
 @app.errorhandler(404)
 def page_not_found(e):
