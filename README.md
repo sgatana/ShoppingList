@@ -1,8 +1,6 @@
 [![Build Status](https://travis-ci.org/sgatana/ShoppingList.svg?branch=develop)](https://travis-ci.org/sgatana/ShoppingList)
-[![Coverage Status](https://coveralls.io/repos/github/sgatana/ShoppingList/badge.svg?branch=develop)](https://coveralls.io/github/sgatana/ShoppingList?branch=develop)
 [![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate)
 [![Test Coverage](https://codeclimate.com/github/codeclimate/codeclimate/badges/coverage.svg)](https://codeclimate.com/github/codeclimate/codeclimate/coverage)
-[![Issue Count](https://codeclimate.com/github/codeclimate/codeclimate/badges/issue_count.svg)](https://codeclimate.com/github/codeclimate/codeclimate)
 # ShoppingList
 Shopping List app has been developed in python. It allows Users to add, remember, delete and share their shopping lists with others
 
